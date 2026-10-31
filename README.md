@@ -1,3 +1,5 @@
+![Python checks](https://github.com/leakquicked/logsentinel/actions/workflows/python-checks.yml/badge.svg)
+
 # LogSentinel
 
 A lightweight, **local-first** authentication log analyzer for defensive security learning.
