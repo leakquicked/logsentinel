@@ -71,6 +71,7 @@ def analyze(lines, threshold: int = 5):
     if isinstance(threshold, bool) or not isinstance(threshold, int) or threshold < 2:
         raise ValueError("threshold must be an integer greater than or equal to 2")
 
+    lines = list(lines)
     events = [
         event
         for line_number, line in enumerate(lines, 1)
@@ -96,7 +97,7 @@ def analyze(lines, threshold: int = 5):
 
     return {
         "summary": {
-            "lines_scanned": len(lines) if hasattr(lines, "__len__") else sum(1 for _ in []),
+            "lines_scanned": len(lines),
             "events_found": len(events),
             "failed_logins": sum(event.event in failed_events for event in events),
             "successful_logins": sum(event.event == "accepted_login" for event in events),
